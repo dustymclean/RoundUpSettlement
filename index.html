@@ -1,167 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Settlement Documentation Notice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & METADATA (For professional link previews) -->
+    <title>Field Agent Verification | Settlement Document Services</title>
+    <meta name="description" content="Official Field Agent Verification and Settlement Document Facilitation Portal. Verify your agent and access contact information for Onder Law and CIAPI.">
+    <meta name="author" content="Field Agent Services">
+    <meta property="og:title" content="Field Agent Verification: Dusty McLean">
+    <meta property="og:description" content="Authorized Field Agent for Settlement Release Facilitation. Click to verify identity and view support contacts.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        :root {
+            --primary: #0f2d4a;
+            --secondary: #f4f6f8;
+            --accent: #2563eb;
+            --success: #10b981;
+            --text-main: #1f2933;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --white: #ffffff;
+        }
 
-<style>
-    body {
-        font-family: "Times New Roman", Times, serif;
-        margin: 55px;
-        color: #000;
-        line-height: 1.55;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: var(--secondary);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-    .letterhead {
-        text-align: center;
-        margin-bottom: 35px;
-    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
 
-    .letterhead h1 {
-        font-size: 20px;
-        margin: 0;
-        letter-spacing: 0.5px;
-    }
+        /* HEADER & STATUS BAR */
+        .status-bar {
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
 
-    .letterhead p {
-        margin: 2px 0;
-        font-size: 13px;
-    }
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    h2 {
-        font-size: 16px;
-        margin-top: 28px;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--success);
+            animation: pulse 2s infinite;
+        }
 
-    p {
-        font-size: 15px;
-        margin: 10px 0;
-    }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
 
-    ul {
-        margin: 8px 0 8px 22px;
-        font-size: 15px;
-    }
+        .header {
+            padding: 40px 30px;
+            border-bottom: 1px solid var(--border);
+        }
 
-    li {
-        margin: 4px 0;
-    }
+        h1 {
+            margin: 0;
+            font-size: 26px;
+            color: var(--primary);
+        }
 
-    .divider {
-        border-top: 1px solid #000;
-        margin: 22px 0;
-    }
+        .subtitle {
+            color: var(--text-light);
+            font-size: 16px;
+            margin-top: 8px;
+        }
 
-    .notice-box {
-        border: 1px solid #000;
-        padding: 14px;
-        margin-top: 18px;
-    }
+        /* AGENT PROFILE CARD */
+        .agent-card {
+            margin: 30px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-    .signature-area {
-        margin-top: 25px;
-    }
+        .agent-header {
+            background: #f8fafc;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .line {
-        display: inline-block;
-        border-bottom: 1px solid #000;
-        width: 260px;
-        height: 18px;
-        vertical-align: bottom;
-    }
+        .agent-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
 
-    .cut-line {
-        border-top: 1px dashed #000;
-        margin: 45px 0;
-    }
+        .agent-info h2 {
+            margin: 0;
+            font-size: 18px;
+            color: var(--text-main);
+        }
 
-    @media print {
-        body { margin: 40px; }
-    }
-</style>
+        .agent-info p {
+            margin: 2px 0 0 0;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .agent-details {
+            padding: 20px;
+            font-size: 14px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item strong {
+            display: block;
+            color: var(--text-light);
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        /* CONTACT NOTICE BUBBLE (New) */
+        .contact-notice {
+            background: #fff;
+            border: 2px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 30px 30px 30px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-notice .icon {
+            font-size: 24px;
+            background: #eff6ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-notice-content h3 {
+            margin: 0 0 5px 0;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        .contact-notice-content p {
+            margin: 0 0 10px 0;
+            font-size: 15px;
+            color: var(--text-main);
+        }
+
+        .verify-link {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .verify-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .verify-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* CONTENT SECTIONS */
+        .content-section {
+            padding: 0 30px 30px 30px;
+        }
+
+        .alert-box {
+            background: #eff6ff;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+        }
+
+        .alert-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: 16px;
+        }
+
+        /* VERIFICATION ACTIONS */
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        @media (min-width: 600px) {
+            .verification-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .verify-btn {
+            display: block;
+            background: white;
+            border: 2px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: all 0.2s ease;
+        }
+
+        .verify-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .verify-btn strong {
+            display: block;
+            color: var(--primary);
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .verify-btn span {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* FAQ ACCORDION */
+        .accordion {
+            border-top: 1px solid var(--border);
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            padding: 18px 0;
+            background: none;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--text-light);
+        }
+
+        .accordion-header.active::after {
+            content: '-';
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .accordion-body {
+            padding-bottom: 20px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #f8fafc;
+            padding: 40px 30px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+            border-top: 1px solid var(--border);
+        }
+
+        .disclaimer {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .btn-call {
+            background-color: var(--success);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="letterhead">
-    <h1>Settlement Documentation Notice</h1>
-    <p>RoundUp Litigation Settlement Assistance</p>
-</div>
+    <div class="container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-indicator">
+                <div class="dot"></div>
+                <span>AGENT STATUS: ACTIVE</span>
+            </div>
+            <div>Field Agent | Notary Public</div>
+        </div>
 
-<p>This notice is provided in connection with the RoundUp litigation settlement process.</p>
+        <!-- Header -->
+        <div class="header">
+            <h1>Settlement Document Assistance</h1>
+            <div class="subtitle">Mobile Verification & Facilitation Portal</div>
+        </div>
 
-<p>You are receiving settlement-related documentation because your claim remains active within the settlement administration system. This correspondence is not a bill, invoice, or solicitation.</p>
+        <!-- Agent Card -->
+        <div class="agent-card">
+            <div class="agent-header">
+                <div class="agent-avatar">DM</div>
+                <div class="agent-info">
+                    <h2>Dusty McLean</h2>
+                    <p>Field Agent & Notary Public</p>
+                </div>
+            </div>
+            <div class="agent-details">
+                <div class="detail-item">
+                    <strong>Service Area</strong>
+                    North Mississippi / Rural Division
+                </div>
+                <div class="detail-item">
+                    <strong>Authorization</strong>
+                    Contracted via CIAPI & Onder Law
+                </div>
+                <div class="detail-item">
+                    <strong>Role</strong>
+                    Identity Verification & Document Courier
+                </div>
+                <div class="detail-item">
+                    <strong>Verification</strong>
+                    <span style="color: var(--success);">✔ Background Checked</span>
+                </div>
+            </div>
+        </div>
 
-<h2>Purpose of Contact</h2>
+        <!-- NEW CONTACT NOTICE BUBBLE -->
+        <div class="contact-notice">
+            <div class="icon">📞</div>
+            <div class="contact-notice-content">
+                <h3>Did you receive a call from (601) 327-8333?</h3>
+                <p>You may have been contacted by Field Agent <strong>Dusty McLean</strong>. If you received a phone call or text from this number regarding your claim, please be assured it was a <strong>legitimate attempt</strong> to reach you. We urgently need to coordinate with you to sign your final papers.</p>
+                <div class="verify-link">
+                    To verify my credentials and authenticity, please visit: <a href="https://northmsnotary.com" target="_blank">northmsnotary.com</a>
+                </div>
+            </div>
+        </div>
 
-<p>A Field Agent has been assigned to assist with the completion of settlement documents. The Field Agent’s function is limited to administrative support associated with document execution and identity verification.</p>
+        <!-- Main Content -->
+        <div class="content-section">
+            
+            <div class="alert-box">
+                <h3>📢 Why am I here?</h3>
+                <p>You have pending settlement documents regarding the <strong>RoundUp Litigation</strong>. Previous attempts to contact you via mail or phone may have been unsuccessful. I am here to verify your identity and securely courier your signature pages back to the law firm so your claim is not forfeited.</p>
+            </div>
 
-<p>During the appointment, the Field Agent may:</p>
+            <h2>Verification Options</h2>
+            <p style="margin-bottom: 20px; font-size: 14px; color: var(--text-light);">We understand caution is necessary. Please use the buttons below to verify this assignment with the official agencies.</p>
 
-<ul>
-    <li>Verify government-issued identification</li>
-    <li>Witness required signatures</li>
-    <li>Return executed documents to the settlement administrator</li>
-</ul>
+            <div class="verification-grid">
+                <!-- Option 1 -->
+                <a href="tel:3143923205" class="verify-btn">
+                    <strong>Option 1: Verify the Agent</strong>
+                    <span>Call <strong>Captured Investigative Agency (CIAPI)</strong>. They dispatch field agents and can confirm my assignment to your address today.</span>
+                    <br>
+                    <span class="btn-call">📞 Call (314) 392-3205</span>
+                </a>
 
-<h2>Document Review</h2>
+                <!-- Option 2 -->
+                <a href="tel:3143734620" class="verify-btn">
+                    <strong>Option 2: Verify the Settlement</strong>
+                    <span>Call <strong>Onder Law Firm</strong> directly if you have concerns about the legitimacy of the lawsuit or settlement offer.</span>
+                    <br>
+                    <span class="btn-call">📞 Call (314) 373-4620</span>
+                </a>
+            </div>
 
-<p>You are encouraged to review the settlement materials at your discretion. Only designated signature pages require completion for processing purposes.</p>
+            <h2>Common Questions</h2>
+            <div class="accordion">
+                <!-- FAQ 1 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Is this a sales call?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            No. This is strictly regarding a legal settlement. We do not sell anything. We are only here to facilitate the signing of release forms so you can receive your settlement funds.
+                        </div>
+                    </div>
+                </div>
 
-<p>The primary settlement booklet is retained by you for your records. Only executed signature pages are submitted.</p>
+                <!-- FAQ 2 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">The claimant is deceased. What now?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            We can assist the Next of Kin. If the claimant has passed, the <strong>Estate Representative</strong>, <strong>Surviving Spouse</strong>, or <strong>Adult Child</strong> can usually sign. We will need to scan a copy of the Death Certificate and any available estate paperwork.
+                        </div>
+                    </div>
+                </div>
 
-<h2>General Information</h2>
+                <!-- FAQ 3 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Will I get a tax form (1099)?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            According to the settlement administrators: No. Personal injury settlements are generally not taxable, and a 1099 form is typically not issued. (Please consult a tax professional for your specific situation).
+                        </div>
+                    </div>
+                </div>
 
-<p><strong>Fees:</strong> There is no cost to you for Field Agent assistance.</p>
+                <!-- FAQ 4 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Does this cost me money?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            No. The mobile document service is covered entirely by the law firm. You do not pay the agent anything.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Why does my spouse need to sign?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Even if your spouse did not use the product, they often have potential legal rights (called "derivative claims"). By signing the "Indemnification" section, they are simply agreeing not to sue the company separately for this same issue in the future.
+                        </div>
+                    </div>
+                </div>
 
-<p><strong>Tax Matters:</strong> Settlement administrators do not provide tax advice. For questions regarding potential tax treatment, consult a qualified tax professional.</p>
+                <!-- FAQ 6 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">I don't remember the exact dates for the questionnaire.</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            That is okay. Please answer as close as you can remember. If you need a specific month and day for the form but don't recall them, using January 1st of the correct year is generally acceptable.
+                        </div>
+                    </div>
+                </div>
 
-<p><strong>Government Benefits:</strong> Settlement processing is separate from benefit determinations. For benefit-related concerns, contact the appropriate agency or advisor.</p>
+                <!-- FAQ 7 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Can I apply for extra funds for severe injuries?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Possibly. The documents you are signing today are for the standard settlement. Once these are returned, you may submit a written request for the "Extraordinary Injury Fund" (EIF), along with supporting medical records, directly to Onder Law.
+                        </div>
+                    </div>
+                </div>
 
-<p><strong>Payment Timing:</strong> Settlement distributions occur only after completion of required documentation and applicable approval procedures.</p>
+                <!-- FAQ 8 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Is this a debt collection attempt?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Absolutely not. We are not debt collectors. We are strictly here to help you claim money that is being offered to you as part of a settlement. We are here to give you something, not take anything.
+                        </div>
+                    </div>
+                </div>
 
-<h2>Deceased Claimants / Estate Matters</h2>
+                <!-- FAQ 9 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Do I keep the documents?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes. You keep the entire information booklet for your records. The Field Agent will only take the specific signature pages needed to process your claim.
+                        </div>
+                    </div>
+                </div>
 
-<p>If the individual named on the documents is deceased, settlement rights may pass to the Estate or legally authorized representative.</p>
+                <!-- FAQ 10 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">When will I receive the money?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Payments are expected to begin sometime next year, provided the settlement reaches the required 78% acceptance threshold among all claimants.
+                        </div>
+                    </div>
+                </div>
 
-<p>In such cases, supporting documentation may be requested, including:</p>
+                <!-- FAQ 11 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Will this affect my Medicare benefits?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            According to the official FAQ provided by the settlement administrators, Medicare benefits should generally not be affected by receiving a personal injury settlement.
+                        </div>
+                    </div>
+                </div>
 
-<ul>
-    <li>Death Certificate</li>
-    <li>Court appointment documents (if applicable)</li>
-    <li>Valid identification of the signing party</li>
-</ul>
+                <!-- FAQ 12 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Why do you need a photo of my ID?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Identity verification is a mandatory security step to prevent fraud. We must confirm that the person signing the release is the actual claimant or authorized estate representative before funds can be released.
+                        </div>
+                    </div>
+                </div>
 
-<div class="divider"></div>
+                <!-- FAQ 13 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Can you explain what this legal paragraph means?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            I am a Field Agent and Notary Public, not an attorney. I can show you where to sign and handle the logistics, but I cannot provide legal advice or interpret the contract terms. For specific legal interpretations, please contact your case manager at Onder Law.
+                        </div>
+                    </div>
+                </div>
 
-<h2>Delivery Attempt Notice</h2>
+                <!-- FAQ 14 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">What if I move or change my phone number?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            You must keep your contact information updated with the law firm to ensure your check is mailed to the correct location. Please contact Onder Law immediately at (314) 373-4620 if your address changes.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 15 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">I already signed this or mailed it back. Why are you here?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            If you are being visited by a Field Agent, it means the firm's records show your file is incomplete. To ensure you do not lose your settlement, we are required to obtain a "wet ink" signature on the physical copy today.
+                        </div>
+                    </div>
+                </div>
 
-<div class="notice-box">
-    <p>A Field Agent attempted delivery of settlement-related documents.</p>
+                <!-- FAQ 16 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Can I just mail this back myself?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            No. Field Agents are required to act as the official courier. We must overnight the signature pages directly to the processing center to maintain the "chain of custody" and ensure tracking. This service is free to you.
+                        </div>
+                    </div>
+                </div>
 
-    <p>Please contact the Field Agent to coordinate document completion:</p>
+                <!-- FAQ 17 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Why is the deceased person listed as a "Co-Signer"?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            That is simply how the legal database tracks the original claim. Do not worry—we understand the claimant has passed away. You, as the Next of Kin or Estate Representative, are signing on their behalf.
+                        </div>
+                    </div>
+                </div>
 
-    <div class="signature-area">
-        <p>Name: <span class="line"></span></p>
-        <p>Phone: <span class="line"></span></p>
+                <!-- FAQ 18 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">Do you really need my Social Security Number?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Yes. Federal law requires the firm to check for any Medicare or Medicaid liens before releasing settlement funds. The firm cannot issue your check without this information.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 19 -->
+                <div class="accordion-item">
+                    <button class="accordion-header">What if I make a mistake while signing?</button>
+                    <div class="accordion-content">
+                        <div class="accordion-body">
+                            Do not use white-out. Simply cross out the mistake with a single line, write the correct information next to it, and put your initials beside the correction.
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="disclaimer">
+                <p><strong>Disclaimer:</strong> Dusty McLean is a Field Agent/Notary Public and is not an attorney. This portal is for identification and logistical purposes only. No legal advice is provided. For legal questions, please contact Onder Law at roundupsettlement@onderlaw.com.</p>
+                <p>&copy; 2026 Field Agent Services. All Rights Reserved.</p>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="cut-line"></div>
-
-<div class="notice-box">
-    <p>A Field Agent attempted delivery of settlement-related documents.</p>
-
-    <p>Please contact the Field Agent to coordinate document completion:</p>
-
-    <div class="signature-area">
-        <p>Name: <span class="line"></span></p>
-        <p>Phone: <span class="line"></span></p>
-    </div>
-</div>
+    <script>
+        // Simple Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                button.classList.toggle('active');
+                
+                if (button.classList.contains('active')) {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } else {
+                    content.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
