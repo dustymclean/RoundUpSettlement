@@ -3,40 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Digital ID Card - Dusty Lyn McLean</title>
+<title>Premium Digital ID Card</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
 <style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+body {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: #f0f2f5;
-  }
+    background: #f3f4f6;
+}
 
-  .card-container {
-    perspective: 1000px;
-  }
+.card-container {
+    perspective: 1200px;
+}
 
-  .card {
-    width: 320px;
-    height: 200px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+.card {
+    width: 350px;
+    height: 220px;
+    border-radius: 15px;
     transform-style: preserve-3d;
     transition: transform 0.8s;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     cursor: pointer;
-  }
+}
 
-  .card.flipped {
+.card.flipped {
     transform: rotateY(180deg);
-  }
+}
 
-  .card-side {
+.card-side {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 12px;
+    border-radius: 15px;
     backface-visibility: hidden;
     display: flex;
     flex-direction: column;
@@ -44,57 +45,62 @@
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    color: #fff;
-  }
+    color: white;
+}
 
-  .front {
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+.front {
+    background: linear-gradient(145deg, #0f172a, #1e293b);
     text-align: center;
-  }
+    border: 1px solid #fcd34d;
+}
 
-  .front h2 {
-    margin: 0;
-    font-size: 20px;
-  }
+.front h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+    color: #fcd34d;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
 
-  .front p {
-    margin: 5px 0;
+.front p {
     font-size: 14px;
-  }
+    margin: 3px 0;
+}
 
-  .back {
-    background: #1f2937;
+.back {
+    background: linear-gradient(145deg, #1e293b, #0f172a);
     transform: rotateY(180deg);
-    color: #fff;
     text-align: center;
-  }
+    border: 1px solid #fcd34d;
+}
 
-  .back img {
+.back img {
     width: 100px;
-    margin-bottom: 15px;
-  }
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px #fcd34d);
+}
 
-  .btn-download {
+.btn-download {
     display: inline-block;
     margin-top: 10px;
-    padding: 8px 15px;
-    background: #10b981;
-    color: #fff;
+    padding: 8px 18px;
+    background: #fcd34d;
+    color: #1e293b;
     text-decoration: none;
-    border-radius: 6px;
     font-weight: bold;
-  }
+    border-radius: 6px;
+}
 
-  .btn-download:hover {
-    background: #059669;
-  }
+.btn-download:hover {
+    background: #fbbf24;
+}
 </style>
 </head>
 <body>
 
 <div class="card-container">
   <div class="card" id="idCard">
-    <!-- Front Side -->
+    <!-- Front -->
     <div class="card-side front">
       <h2>Dusty Lyn McLean</h2>
       <p>North Mississippi Notary</p>
@@ -102,9 +108,9 @@
       <p>notary@northmsnotary.com</p>
       <small>Click to flip</small>
     </div>
-    <!-- Back Side -->
+    <!-- Back -->
     <div class="card-side back">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://northmsnotary.com" alt="QR Code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://northmsnotary.com" alt="QR Code">
       <p>Scan or download my vCard!</p>
       <a href="#" class="btn-download" id="downloadVCard">Download vCard</a>
       <small>Click card to flip back</small>
@@ -113,14 +119,12 @@
 </div>
 
 <script>
-  // Flip card on click
-  const card = document.getElementById('idCard');
-  card.addEventListener('click', () => {
-    card.classList.toggle('flipped');
-  });
+// Flip card
+const card = document.getElementById('idCard');
+card.addEventListener('click', () => card.classList.toggle('flipped'));
 
-  // vCard content
-  const vCardData = `
+// vCard
+const vCardData = `
 BEGIN:VCARD
 VERSION:3.0
 FN:Dusty Lyn McLean
@@ -131,11 +135,11 @@ EMAIL:notary@northmsnotary.com
 URL:https://northmsnotary.com
 NOTE:Hello! This is Dusty Lyn McLean, your friendly North Mississippi Notary. Let's make paperwork easy and fun! 😊
 END:VCARD
-  `.trim();
+`.trim();
 
-  document.getElementById('downloadVCard').addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent card flip
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
+document.getElementById('downloadVCard').addEventListener('click', e => {
+    e.stopPropagation();
+    const blob = new Blob([vCardData], {type: 'text/vcard'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -144,7 +148,7 @@ END:VCARD
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-  });
+});
 </script>
 
 </body>
