@@ -1,217 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Settlement Document Assistance Notice</title>
-
+<title>Digital ID Card - Dusty Lyn McLean</title>
 <style>
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-        background: #f4f6f8;
-        margin: 0;
-        padding: 40px;
-        color: #1f2933;
-    }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f2f5;
+  }
 
-    .page {
-        max-width: 800px;
-        margin: auto;
-        background: white;
-        padding: 50px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        border-top: 6px solid #0f2d4a;
-    }
+  .card-container {
+    perspective: 1000px;
+  }
 
-    h1 {
-        margin-top: 0;
-        font-size: 28px;
-        letter-spacing: 0.5px;
-        color: #0f2d4a;
-    }
+  .card {
+    width: 320px;
+    height: 200px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    cursor: pointer;
+  }
 
-    .subhead {
-        font-size: 14px;
-        color: #6b7280;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
 
-    /* Header buttons */
-    .header-buttons {
-        display: flex;
-        gap: 15px;
-        margin: 20px 0;
-        flex-wrap: wrap;
-    }
+  .card-side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+  }
 
-    .header-buttons a {
-        padding: 10px 20px;
-        text-decoration: none;
-        color: white;
-        border-radius: 6px;
-        font-weight: bold;
-        text-align: center;
-    }
+  .front {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    text-align: center;
+  }
 
-    .btn-verify { background: #2563eb; }
-    .btn-id { background: #10b981; }
+  .front h2 {
+    margin: 0;
+    font-size: 20px;
+  }
 
-    .btn-verify:hover { opacity: 0.9; }
-    .btn-id:hover { opacity: 0.9; }
+  .front p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
 
-    p {
-        line-height: 1.6;
-        font-size: 15px;
-        margin: 18px 0;
-    }
+  .back {
+    background: #1f2937;
+    transform: rotateY(180deg);
+    color: #fff;
+    text-align: center;
+  }
 
-    .highlight-box {
-        background: #f9fafb;
-        border: 1px solid #e5e7eb;
-        padding: 20px;
-        border-radius: 8px;
-        margin: 30px 0;
-    }
+  .back img {
+    width: 100px;
+    margin-bottom: 15px;
+  }
 
-    .agent {
-        font-weight: 600;
-        color: #0f2d4a;
-    }
+  .btn-download {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #10b981;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+  }
 
-    .footer {
-        margin-top: 40px;
-        font-size: 13px;
-        color: #6b7280;
-        border-top: 1px solid #e5e7eb;
-        padding-top: 20px;
-    }
-
-    .small {
-        font-size: 13px;
-        color: #6b7280;
-    }
-
-    /* Verification Options Styles */
-    .option {
-        background-color: #f9fafb;
-        border: 1px solid #e5e7eb;
-        padding: 20px;
-        margin: 30px 0;
-        border-radius: 8px;
-    }
-
-    .option h2 {
-        color: #0f2d4a;
-        font-size: 18px;
-        margin-top: 0;
-    }
-
-    .contact {
-        margin: 5px 0;
-        font-size: 15px;
-    }
-
-    .copy-link {
-        color: #2563eb;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    .copy-link:hover {
-        color: #1e40af;
-    }
+  .btn-download:hover {
+    background: #059669;
+  }
 </style>
 </head>
-
 <body>
-<div class="page">
 
-    <h1>Settlement Document Assistance Notice</h1>
-    <div class="subhead">Mobile Document Facilitation Service</div>
-
-    <!-- Header buttons -->
-    <div class="header-buttons">
-        <a href="verification.html" class="btn-verify">Verify Identity / Lawsuit</a>
-        <a href="digital-id.html" class="btn-id">View Digital ID & Download vCard</a>
+<div class="card-container">
+  <div class="card" id="idCard">
+    <!-- Front Side -->
+    <div class="card-side front">
+      <h2>Dusty Lyn McLean</h2>
+      <p>North Mississippi Notary</p>
+      <p>601-327-8333 | 601-300-0702</p>
+      <p>notary@northmsnotary.com</p>
+      <small>Click to flip</small>
     </div>
-
-    <p>
-        This notice is to inform you that mobile document assistance has been scheduled in connection with pending settlement-related documentation.
-    </p>
-
-    <p>
-        Our records indicate that prior attempts to complete the required paperwork were unsuccessful. To help prevent unnecessary delays, an in-person document facilitation service has been assigned.
-    </p>
-
-    <div class="highlight-box">
-        <p>
-            <span class="agent">Assigned Field Agent:</span><br>
-            Dusty McLean<br>
-            Also Known As: North Mississippi Notary<br>
-            Service Area: North Mississippi
-        </p>
+    <!-- Back Side -->
+    <div class="card-side back">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://northmsnotary.com" alt="QR Code">
+      <p>Scan or download my vCard!</p>
+      <a href="#" class="btn-download" id="downloadVCard">Download vCard</a>
+      <small>Click card to flip back</small>
     </div>
-
-    <p>
-        Dusty McLean’s role is limited to facilitating identity verification and returning properly executed documents to the settlement administrator. He does not determine settlement amounts, eligibility decisions, or payment timelines.
-    </p>
-
-    <p>
-        For identity verification and document security, Dusty McLean will securely scan a valid government-issued photo ID during the appointment. This is a standard procedural requirement designed to protect all parties and reduce processing issues.
-    </p>
-
-    <p>
-        This service exists solely to assist eligible individuals with completion of required documentation so settlement processing may continue as intended.
-    </p>
-
-    <p>
-        Many individuals find legal paperwork confusing or inconvenient. Mobile assistance is provided to simplify the process and help avoid common signing errors that may otherwise cause delays.
-    </p>
-
-    <!-- Verification Options -->
-    <div class="option">
-        <h2>Option 1: Verify the Investigator (Recommended)</h2>
-        <p><strong>Who to contact:</strong> <a href="https://www.ciapi.info" target="_blank">Captured Investigative Agency (CIAPI)</a></p>
-        <p><strong>Why:</strong> They dispatched the investigator and can confirm if an assignment was sent to the address today.</p>
-        <p class="contact"><strong>Main Office:</strong> (314) 392-3205</p>
-        <p class="contact"><strong>Case Manager (Devon Shields):</strong> (314) 899-5094</p>
-        <p class="contact"><strong>Website:</strong> <a href="https://www.ciapi.info" target="_blank">www.ciapi.info</a></p>
-    </div>
-
-    <div class="option">
-        <h2>Option 2: Verify the Lawsuit / Settlement</h2>
-        <p><strong>Who to contact:</strong> <a href="https://www.onderlaw.com" target="_blank">Onder Law Firm</a></p>
-        <p><strong>Why:</strong> Call directly if you suspect the settlement offer may be fake.</p>
-        <p class="contact"><strong>Phone:</strong> (314) 373-4620</p>
-        <p class="contact">
-            <strong>Email:</strong> 
-            <span class="copy-link" onclick="copyEmail('roundupsettlement@onderlaw.com')">roundupsettlement@onderlaw.com</span>
-        </p>
-    </div>
-
-    <div class="footer">
-        <p>
-            If you have questions regarding your settlement, claim status, or payment details, please contact the law firm or settlement administrator directly using the contact information previously provided to you.
-        </p>
-
-        <p class="small">
-            This notice is informational in nature and does not alter any legal rights or obligations. Identity verification is required for document processing compliance.
-        </p>
-    </div>
-
+  </div>
 </div>
 
 <script>
-    function copyEmail(email) {
-        navigator.clipboard.writeText(email).then(() => {
-            alert('Email copied to clipboard: ' + email);
-        }).catch(err => {
-            console.error('Failed to copy: ', err);
-        });
-    }
+  // Flip card on click
+  const card = document.getElementById('idCard');
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
+
+  // vCard content
+  const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Dusty Lyn McLean
+ORG:North Mississippi Notary
+TEL;TYPE=cell:601-327-8333
+TEL;TYPE=cell:601-300-0702
+EMAIL:notary@northmsnotary.com
+URL:https://northmsnotary.com
+NOTE:Hello! This is Dusty Lyn McLean, your friendly North Mississippi Notary. Let's make paperwork easy and fun! 😊
+END:VCARD
+  `.trim();
+
+  document.getElementById('downloadVCard').addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent card flip
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'DustyLynMcLean.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
 </script>
 
 </body>
