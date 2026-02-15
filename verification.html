@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Verification Options Detail</title>
+<style>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #f4f6f8;
+        margin: 0;
+        padding: 40px;
+        color: #1f2933;
+    }
+    .page {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        border-top: 6px solid #0f2d4a;
+    }
+    h1 {
+        color: #0f2d4a;
+        margin-top: 0;
+    }
+    .option {
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 30px 0;
+    }
+    .copy-link {
+        color: #2563eb;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+    <h1>Verification Options – Details</h1>
+
+    <div class="option">
+        <h2>Option 1: Verify the Investigator</h2>
+        <p><strong>Agency:</strong> <a href="https://www.ciapi.info" target="_blank">Captured Investigative Agency</a></p>
+        <p><strong>Main Office:</strong> (314) 392-3205</p>
+        <p><strong>Case Manager:</strong> Devon Shields – (314) 899-5094</p>
+    </div>
+
+    <div class="option">
+        <h2>Option 2: Verify the Lawsuit / Settlement</h2>
+        <p><strong>Law Firm:</strong> <a href="https://www.onderlaw.com" target="_blank">Onder Law Firm</a></p>
+        <p><strong>Phone:</strong> (314) 373-4620</p>
+        <p><strong>Email:</strong> 
+            <span class="copy-link" onclick="copyEmail('roundupsettlement@onderlaw.com')">roundupsettlement@onderlaw.com</span>
+        </p>
+    </div>
+
+    <p><a href="index.html">← Back to Settlement Notice</a></p>
+</div>
+
+<script>
+function copyEmail(email) {
+    navigator.clipboard.writeText(email).then(() => {
+        alert('Email copied: ' + email);
+    });
+}
+</script>
+</body>
+</html>
